@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Climate & Weather Prediction System</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 🌤️ Dynamic sky background -->
+  <div id="sky" class="sky-bg clear-sky"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <h1><i class="fas fa-cloud-sun"></i> Smart Climate Dashboard</h1>
+      <div class="nav-links">
+        <a href="#current-weather"><i class="fas fa-cloud-sun"></i> Weather</a>
+        <a href="#climate-monitoring"><i class="fas fa-temperature-high"></i> Climate</a>
+        <a href="#predictions"><i class="fas fa-chart-line"></i> Predictions</a>
+        <a href="#alerts"><i class="fas fa-bell"></i> Alerts</a>
+      </div>
+    </nav>
+
+    <div class="controls">
+      <button id="refreshBtn" class="refresh-btn">
+        <i class="fas fa-sync-alt"></i> Refresh Data
+      </button>
+      <p id="lastUpdated" class="last-updated">Last updated: —</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Current Weather -->
+    <section id="current-weather">
+      <h2>Current Weather</h2>
+      <div class="weather-cards">
+        <div class="card location">
+          <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+          <div class="value" id="locationName">Detecting...</div>
+          <div class="coords" id="locationCoords"></div>
+        </div>
+
+        <div class="card temperature">
+          <h3>Temperature</h3>
+          <div class="value" id="tempValue">--°C</div>
+          <div class="range" id="tempRange">Min: --°C | Max: --°C</div>
+        </div>
+
+        <div class="card humidity">
+          <h3>Humidity</h3>
+          <div class="value" id="humidityValue">--%</div>
+        </div>
+
+        <div class="card wind">
+          <h3>Wind</h3>
+          <div class="value" id="windValue">-- km/h</div>
+          <div class="direction" id="windDir">--</div>
+        </div>
+
+        <div class="card aqi">
+          <h3>Air Quality (AQI)</h3>
+          <div class="value" id="aqiValue">--</div>
+          <div class="status" id="aqiStatus">--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Predictions -->
+    <section id="predictions">
+      <h2>Weather Predictions</h2>
+      <div class="prediction-chart">
+        <canvas id="predictionChart" aria-label="5-day temperature forecast chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Climate Monitoring -->
+    <section id="climate-monitoring">
+      <h2>Climate Trends</h2>
+      <div class="climate-cards">
+        <div class="card co2-levels">
+          <h3>CO₂ Levels (NOAA Mauna Loa)</h3>
+          <canvas id="co2Chart" aria-label="CO2 chart"></canvas>
+        </div>
+        <div class="card temperature-trend">
+          <h3>Global Temperature Anomaly (NASA GISTEMP)</h3>
+          <canvas id="temperatureChart" aria-label="Global temperature chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alerts -->
+    <section id="alerts">
+      <h2>Weather Alerts</h2>
+      <div class="alerts-container" id="alertsContainer"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Data sources: OpenWeatherMap (weather & AQI), NOAA (CO₂), NASA GISTEMP (temperature anomalies)</p>
+    <p>© 2025 Smart Climate & Weather Prediction System</p>
+  </footer>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
